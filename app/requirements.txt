@@ -1,0 +1,2 @@
+migra==3.0.1663481299
+psycopg2-binary==2.9.6
