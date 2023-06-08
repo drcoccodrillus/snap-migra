@@ -1,0 +1,25 @@
+name: migra
+base: core22
+version: '3.0.1663481299'
+summary: Like diff but for Postgres schemas
+description: |
+  migra is a schema diff tool for PostgreSQL, written in Python.
+  It magically figures out all the statements required to get from A to B.
+  Migra supports PostgreSQL >= 9 only. Known issues exist with earlier versions.
+
+#grade: devel #This is for development only.
+#confinement: devmode #This is for development only. Unconfined snap environment. For production, use strict.
+grade: stable #This is for releasing in the stable channel.
+confinement: strict #This is for production only.
+
+apps:
+  migra:
+    command: bin/migra
+    plugs: [home, network]
+
+parts:
+  #Install all packages from requirements
+  python-packages:
+    plugin: python
+    source: app
+    python-requirements: ['requirements.txt']
