@@ -1,6 +1,6 @@
 name: migra
 base: core22
-version: '3.0.1663481299'
+version: '3.0.1663481299-rev1'
 summary: Like diff but for Postgres schemas
 description: |
   migra is a schema diff tool for PostgreSQL, written in Python.
@@ -11,6 +11,18 @@ description: |
 #confinement: devmode #This is for development only. Unconfined snap environment. For production, use strict.
 grade: stable #This is for releasing in the stable channel.
 confinement: strict #This is for production only.
+
+architectures:
+  - build-on: [amd64]
+    build-for: [amd64]
+  - build-on: [amd64, arm64]
+    build-for: [arm64]
+  - build-on: [amd64, armhf]
+    build-for: [armhf]
+  - build-on: [amd64, ppc64el]
+    build-for: [ppc64el]
+  - build-on: [amd64, s390x]
+    build-for: [s390x]
 
 apps:
   migra:
